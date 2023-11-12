@@ -1,0 +1,47 @@
+<section>
+    <div class="container">
+        <table class="table mt-5" id="allOrderss">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">User Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Mobile</th>
+       <th scope="col">Amount</th>
+       {{! <th scope="col">Payment</th> }}
+       <th scope="col">Status</th>
+        <th scope="col">Details</th>
+        <th scope="col">Change Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each allOrders}}
+    <tr>
+      <th scope="row">{{this.date}}</th>
+      <th scope="row">{{this.time}}</th>
+      <td style="color: blue;">{{this.username}}</td>
+      <td>{{this.deliveryDetails.address}}</td>
+      <td>{{this.deliveryDetails.mobile}}</td>
+      <td>{{this.totalAmount}}</td>
+     {{! <td>{{this.paymentMethord}}</td>
+      <td style="color: green;">{{this.status}}</td>
+      <td>
+        <a href="/admin/view-order-productss/{{this._id}}/{{this.userId}}" class="btn btn-primary">view-products</a>
+      </td>
+      <td>
+        <a href="/admin/change-order-status/{{this._id}}/{{this.userId}}" class="btn btn-success">deliverd</a>
+      </td>
+      
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+
+<script>
+  $(document).ready( function () {
+    $('#allOrderss').DataTable();
+} );
+</script>
